@@ -6,8 +6,8 @@ https://github.com/kp01aj/check-blacklistD
 """
 
 # DB DNSBL External Site.
-def dnsbldb (DNS_BLS):
-    DNS_BLS = set([
+def dnsbldb ():
+    return set([
         'b.barracudacentral.org',
         'cbl.abuseat.org',
         'http.dnsbl.sorbs.net',

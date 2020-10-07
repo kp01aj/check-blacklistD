@@ -17,22 +17,13 @@ from dnsblModel import dnsbldb
 LOOKUP_TIMEOUT = 10
 PARALELLISM = 10
 
-"""
-DNS_BLS = set([
-    'b.barracudacentral.org',
-    'cbl.abuseat.org',
-    'http.dnsbl.sorbs.net',
-    'misc.dnsbl.sorbs.net',
-    'socks.dnsbl.sorbs.net',
-    'web.dnsbl.sorbs.net',
-])
-"""
-
 # DBL only lists hostnames. Spamhaus doesn't want you to query it for IPs,
 # so they return a false positive for each IP address.
 HOST_LOOKUP_ONLY = set([
     'dbl.spamhaus.org',
 ])
+
+DNS_BLS = dnsbldb()
 
 class Host:
     def __init__(self, hostname=None, addr=None):
@@ -99,6 +90,7 @@ def get_host_and_ip(host_or_ip):
         return Host(hostname=host, addr=addr)
 
 def main():
+    dnsbldb()
     if len(sys.argv) < 2:
         print_usage()
         sys.exit(1)
