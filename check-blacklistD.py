@@ -23,8 +23,6 @@ HOST_LOOKUP_ONLY = set([
     'dbl.spamhaus.org',
 ])
 
-DNS_BLS = dnsbldb()
-
 class Host:
     def __init__(self, hostname=None, addr=None):
         self.hostname = hostname
@@ -90,7 +88,7 @@ def get_host_and_ip(host_or_ip):
         return Host(hostname=host, addr=addr)
 
 def main():
-    dnsbldb()
+    DNS_BLS = dnsbldb()
     if len(sys.argv) < 2:
         print_usage()
         sys.exit(1)
