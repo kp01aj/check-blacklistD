@@ -51,7 +51,7 @@ def lookup(host_rbl):
     rblhost = host[0] + "." + rbl
     try:
         socket.gethostbyname(rblhost)
-        sys.stderr.write("WARNING: %s found in spam blocklist %s!\n" % (host[-1], rbl))
+        sys.stderr.write("%s Found in blacklist of %s\n" % (host[-1], rbl))
         sys.stderr.flush()
         return True
     except socket.gaierror:
